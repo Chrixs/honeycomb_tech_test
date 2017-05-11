@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'broadcaster'
 
 describe Broadcaster do
 

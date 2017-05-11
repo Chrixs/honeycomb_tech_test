@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'material'
 
 describe Material do
 
