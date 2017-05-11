@@ -1,5 +1,3 @@
-require 'pry'
-
 class Order
 
   COLUMNS = {
@@ -14,9 +12,9 @@ class Order
     self.material = material
     self.items = []
     self.total = 0
+    self.discounts_total = 0
     self.discounts = discounts
     self.cumulative_discounts = cumulative_discounts
-    self.discounts_total = 0
   end
 
   def add(broadcaster, delivery)
@@ -34,11 +32,6 @@ class Order
     total_before_discounts
     calculate_discounts(self.discounts, self.cumulative_discounts)
     self.total
-  end
-
-  def calculate_discounts(discounts, cumulative_discounts)
-    discounts.two_express_deliveries?(self)
-    cumulative_discounts.over_thirty?(self)
   end
 
   def output
@@ -67,4 +60,8 @@ class Order
     @output_separator ||= COLUMNS.map { |_, width| '-' * width }.join(' | ')
   end
 
+  def calculate_discounts(discounts, cumulative_discounts)
+    discounts.two_express_deliveries?(self)
+    cumulative_discounts.over_thirty?(self)
+  end
 end

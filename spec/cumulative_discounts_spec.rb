@@ -1,5 +1,4 @@
 require 'spec_helper'
-require "pry"
 
 describe CumulativeDiscounts do
 
@@ -21,7 +20,6 @@ describe CumulativeDiscounts do
   it "should be a rando price" do
     order.add disney, express_delivery
     order.total_after_discounts
-    binding.pry
     expect(order.total).to eq 36.00
   end
 
