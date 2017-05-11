@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe Delivery do
 
-    name = "express"
+    name = :express
     price = 20
     subject { described_class.new(name, price) }
 
     it "should have a name attribute" do
-      expect(subject.name).to eq("express")
+      expect(subject.name).to eq(:express)
     end
 
     it "should have a price attribute" do
